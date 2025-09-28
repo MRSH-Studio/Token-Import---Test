@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>🚀 در حال افزودن توکن‌ها به Trust Wallet...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+window.onload = function() {
+    // Auto redirect to Trust Wallet Deeplink
+    window.location.href = "trustwallet://import?url=https://mrsh-studio.github.io/Token-Import---Test/tokenlist.json";
+    // Fallback in case auto-open fails
+    setTimeout(function(){
+        document.getElementById("fallback").style.display = "block";
+    }, 3000);
+};
+</script>
+<style>
+body { font-family: sans-serif; background-color: #111; color: #fff; text-align: center; padding: 50px; }
+button { padding: 10px 20px; font-size: 18px; margin-top: 20px; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>🚀 در حال افزودن توکن‌ها به Trust Wallet...</h1>
+<div id="fallback" style="display:none;">
+    <p>اگر Trust Wallet خودکار باز نشد، روی دکمه زیر کلیک کنید:</p>
+    <button onclick="window.location.href='trustwallet://import?url=https://mrsh-studio.github.io/Token-Import---Test/tokenlist.json'">Quick Add Tokens</button>
+    <p>Trust Wallet باز نشد؟ این لینک را داخل مرورگر داخلی Trust Wallet باز کنید.</p>
+</div>
+</body>
+</html>
