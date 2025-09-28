@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trust Wallet Token Import</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .token-container {
+      max-width: 400px;
+      margin: auto;
+    }
+    .token {
+      background: #1e1e1e;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    img.token-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    button {
+      background: #6200ea;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #4500b5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom Token List</h1>
+  <div class="token-container" id="token-list">
+    <div class="token">
+      <img src="MGC.png" alt="MGC" class="token-logo"/>
+      <span>Meta Games Coin (MGC)</span>
+      <button onclick="addToken('0xbb73BB2505AC4643d5C0a99c2A1F34B3DfD09D11')">Add</button>
+    </div>
+    <div class="token">
+      <img src="car.png" alt="CAR" class="token-logo"/>
+      <span>Car Token (CAR)</span>
+      <button onclick="addToken('0xBB1106c7dEb7cC60EfA51391760b14aEd8CB5BEd')">Add</button>
+    </div>
+  </div>
+  <br/>
+  <button onclick="quickAdd()">Quick Add</button>
+
+  <script>
+    function addToken(address) {
+      const deeplink = `trustwallet://add_asset?address=${address}&chain_id=56`;
+      window.location.href = deeplink;
+    }
+    function quickAdd() {
+      const jsonUrl = window.location.origin + '/tokens.json';
+      const deeplink = `trustwallet://import_token_list?url=${encodeURIComponent(jsonUrl)}`;
+      window.location.href = deeplink;
+    }
+  </script>
+</body>
+</html>
