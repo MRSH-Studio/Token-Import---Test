@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>🚀 در حال افزودن توکن‌ها به Trust Wallet...</title>
+<script>
+function openTrustWallet() {
+  var tokenListUrl = "https://mrsh-studio.github.io/Token-Import---Test/tokenlist.json";
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf("android") > -1) {
+    window.location.href = "intent://import?url=" + encodeURIComponent(tokenListUrl) +
+      "#Intent;scheme=trustwallet;package=com.wallet.crypto.trustapp;end";
+  } else {
+    window.location.href = "https://link.trustwallet.com/import?url=" + encodeURIComponent(tokenListUrl);
+  }
+}
+setTimeout(openTrustWallet, 500);
+</script>
+</head>
+<body>
+<p>🚀 در حال افزودن توکن‌ها به Trust Wallet...</p>
+<button onclick="openTrustWallet()">Quick Add Tokens</button>
+</body>
+</html>
